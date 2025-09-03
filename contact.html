@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Gw Cash & Carry</title>
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <h1>Gw Cash & Carry</h1>
+    </div>
+    <nav>
+      <button class="menu-btn" id="menu-btn">☰</button>
+      <ul id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or wholesale inquiries? Send us a message or visit us!</p>
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <p><strong>📍 Address:</strong> 265 Watsessing Ave, Bloomfield, NJ</p>
+      <p><strong>📞 Phone:</strong> <a href="tel:9734504343">973-450-4343</a></p>
+      <p><strong>📧 Email:</strong> <a href="mailto:gwcashandcarry@gmail.com">gwcashandcarry@gmail.com</a></p>
+    </div>
+
+    <!-- Google Map -->
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.8141115074966!2d-74.194829!3d40.790510!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c254d4d4bb6f77%3A0x5c40d96e338ac1b3!2s265%20Watsessing%20Ave%2C%20Bloomfield%2C%20NJ%2007003!5e0!3m2!1sen!2sus!4v1693578329455!5m2!1sen!2sus"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Contact Form -->
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="store">Store Name</label>
+        <input type="text" id="store" name="store" placeholder="Your store name" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Your message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Gw Cash & Carry | Wholesale Distributor</p>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+
+    menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      const phonePattern = /^[0-9]{10,}$/;
+
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      if (!phonePattern.test(phone)) {
+        alert("Please enter a valid phone number (at least 10 digits).");
+        return;
+      }
+
+      alert("Your message has been sent! (Backend setup needed for actual emails)");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
